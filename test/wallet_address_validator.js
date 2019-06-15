@@ -303,6 +303,8 @@ describe('WAValidator.validate()', function () {
             valid('t1U9yhDa5XEjgfnTgZoKddeSiEN1aoLkQxq', 'votecoin');
             valid('t3Vz22vK5z2LcKEdg16Yv4FFneEL1zg9ojd', 'VOT');
             valid('t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi', 'votecoin', 'testnet');
+              valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'votecoin', 'sapling');
+            invalid('zs1z7rejlpsa98s2rrrfkwmaxu53e4ue0ulcrw0h4x5g8jl04tak0d3mm47vdtahatqrlknghly9s', 'votecoin', 'sapling');
         });
 
         it('should return true for correct bitcoinz addresses', function () {
@@ -315,42 +317,46 @@ describe('WAValidator.validate()', function () {
             valid('t1U9yhDa5XEjgfnTgZoKddeSiEN1aoLkQxq', 'zclassic');
             valid('t3Vz22vK5z2LcKEdg16Yv4FFneEL1zg9ojd', 'ZCL');
             valid('t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi', 'zclassic', 'testnet');
+              valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'zclassic', 'sapling');
+            invalid('zs1z7rejlpsa98s2rrrfkwmaxu53e4ue0ulcrw0h4x5g8jl04tak0d3mm47vdtahatqrlknghly9s', 'zclassic', 'sapling');
         });
 
         it('should return true for correct hush addresses', function () {
-            valid('t1U9yhDa5XEjgfnTgZoKddeSiEN1aoLkQxq', 'hush');
-            valid('t3Vz22vK5z2LcKEdg16Yv4FFneEL1zg9ojd', 'HUSH');
-            valid('t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi', 'hush', 'testnet');
+            valid('R9R5HirAzqDcWrWGiJEL115dpV3QB3hobH', 'hush');
+            valid('RAvj2KKVUohTu3hVdNJ4U6hQi7TNawpacH', 'HUSH');
+              valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'hush', 'sapling');
+            invalid('zs1z7rejlpsa98s2rrrfkwmaxu53e4ue0ulcrw0h4x5g8jl04tak0d3mm47vdtahatqrlknghly9s', 'hush', 'sapling');
         });
 
         it('should return true for correct zcash addresses', function () {
             valid('t1U9yhDa5XEjgfnTgZoKddeSiEN1aoLkQxq', 'zcash');
             valid('t3Vz22vK5z2LcKEdg16Yv4FFneEL1zg9ojd', 'ZEC');
             valid('t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi', 'zcash', 'testnet');
+              valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'zcash', 'sapling');
+            invalid('zs1z7rejlpsa98s2rrrfkwmaxu53e4ue0ulcrw0h4x5g8jl04tak0d3m7vdtahatqrlknghly9s', 'zcash', 'sapling');
         });
 
         it('should return true for correct bitcoinprivate addresses', function () {
             valid('b1M4XXPFhwMb1SP33yhzn3h9qWXjujkgep4', 'bitcoinprivate');
-            //valid('bx....', 'BTCP');
-            //valid('nx....', 'bitcoinprivate', 'testnet');
         });
 
         it('should return true for correct snowgem addresses', function () {
             valid('s1fx7WBkjB4UH6qQjPp6Ysmtr1C1JiTK2Yw', 'snowgem');
             valid('s3d27MhkBRt3ha2UuxhjXaYF4DCnttTMnL1', 'SNG');
             valid('t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi', 'snowgem', 'testnet');
+              valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'snowgem', 'sapling');
+            invalid('zs1z7rejlpsa98s2rrrfkwmaxu53e4ue0ulcrw0h4x5g8jl04tak0d3m7vdtahatqrlknghly9s99', 'snowgem', 'sapling');
         });
 
         it('should return true for correct zencash addresses', function () {
             valid('znhiGGfYRepxkBjXYvA2kFrXiC351i9ta4z', 'zencash');
-            valid('zssEdGnZCQ9G86LZFtbynMn1hYTVhn6eYCL', 'ZEN');
+            valid('zszpcLB6C5B8QvfDbF2dYWXsrpac5DL9WRk', 'ZEN');
             valid('ztmWMDLWjbruCJxKmmfAZiT6QAQdiv5F291', 'zencash', 'testnet');
         });
 
         it('should return true for correct komodo addresses', function () {
             valid('R9R5HirAzqDcWrWGiJEL115dpV3QB3hobH', 'komodo');
             valid('RAvj2KKVUohTu3hVdNJ4U6hQi7TNawpacH', 'KMD');
-            //valid('t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi', 'komodo', 'testnet');
         });
 
         it('should return true for correct Bankex addresses', function () {
