@@ -23,7 +23,7 @@ function getDecoded(address) {
         }
         // ConvertedSaplingPaymentAddressSize == decoded.data.length == 69
         // https://github.com/zcash/zcash/blob/master/src/key_io.cpp#L168
-        if (decoded && decoded.data.length == 69)
+        if (decoded && decoded.data && decoded.data.length == 69)
             return decoded;
     }
     return null;
