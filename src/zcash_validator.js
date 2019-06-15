@@ -6,15 +6,15 @@ const cryptoUtils = require('./crypto/utils');
 const DEFAULT_NETWORK_TYPE = 'prod';
 
 function getDecoded(address) {
-    if (address.slice(0, 2) !== 'zs') {
-        // non-sapling
-        try {
-            return base58.decode(address);
-        } catch (e) {
-            return null;
-        }
-    } else {
-        // sapling, bech32 decode
+    // non-sapling
+    try {
+        return base58.decode(address);
+    } catch (e) {
+        // maybe sapling
+        //return null;
+    }
+    // sapling, bech32 decode
+    if (address.slice(0,2) == 'zs') {
         let decoded;
         try {
             decoded = bech32.decode(address);
@@ -23,11 +23,10 @@ function getDecoded(address) {
         }
         // ConvertedSaplingPaymentAddressSize == decoded.data.length == 69
         // https://github.com/zcash/zcash/blob/master/src/key_io.cpp#L168
-        if (decoded.data.length == 69)
+        if (decoded && decoded.data.length == 69)
             return decoded;
-        
-        return null;
     }
+    return null;
 }
 
 function getChecksum(hashFunction, payload) {
@@ -71,13 +70,9 @@ function isValidZCashAddress(address, currency, networkType) {
     let addressType = getAddressType(address, currency);
 
     if (addressType) {
-        if (currency.addressTypes[networkType]) {
-            correctAddressTypes = currency.addressTypes[networkType];
-        } else {
-            correctAddressTypes = currency.addressTypes.prod.concat(currency.addressTypes.testnet);
-        }
-
-        return correctAddressTypes.indexOf(addressType) >= 0;
+        correctAddressTypes = currency.addressTypes[networkType];
+        if (correctAddressTypes)
+            return correctAddressTypes.indexOf(addressType) >= 0;
     }
 
     return false;
