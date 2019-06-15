@@ -1,8 +1,9 @@
-var XRPValidator = require('./ripple_validator');
-var ETHValidator = require('./ethereum_validator');
-var BTCValidator = require('./bitcoin_validator');
-var XMRValidator = require('./monero_validator');
-var NANOValidator = require('./nano_validator');
+const XRPValidator = require('./ripple_validator');
+const ETHValidator = require('./ethereum_validator');
+const BTCValidator = require('./bitcoin_validator');
+const XMRValidator = require('./monero_validator');
+const NANOValidator = require('./nano_validator');
+const ZECValidator = require('./zcash_validator');
 
 // defines P2PKH and P2SH address types for standard (prod) and testnet networks
 var CURRENCIES = [{
@@ -89,56 +90,55 @@ var CURRENCIES = [{
 },{
     name: 'komodo',
     symbol: 'kmd',
-    addressTypes: {prod: ['3c', '55'], testnet: ['0','5']},
-    validator: BTCValidator
+    addressTypes: {prod: ['3c','55'], testnet: ['0','5']},
+    validator: ZECValidator
 },{
     name: 'bitcoinz',
     symbol: 'btcz',
     expectedLength: 26,
     addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba']},
-    validator: BTCValidator
+    validator: ZECValidator
 },{
     name: 'bitcoinprivate',
     symbol: 'btcp',
     expectedLength: 26,
     addressTypes: {prod: ['1325','13af'], testnet: ['1957', '19e0']},
-    validator: BTCValidator
+    validator: ZECValidator
 },{
     name: 'hush',
     symbol: 'hush',
-    expectedLength: 26,
-    addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba']},
-    validator: BTCValidator
+    addressTypes: {prod: ['3c','55'], testnet: ['0','5'], sapling: ['3c','55','zs']},
+    validator: ZECValidator
 },{
     name: 'snowgem',
     symbol: 'sng',
     expectedLength: 26,
-    addressTypes: {prod: ['1c28','1c2d'], testnet: ['1d25', '1cba']},
-    validator: BTCValidator
+    addressTypes: {prod: ['1c28','1c2d'], testnet: ['1d25', '1cba'], sapling: ['1cb8','1cbd','zs']},
+    validator: ZECValidator
 },{
     name: 'zcash',
     symbol: 'zec',
     expectedLength: 26,
-    addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba']},
-    validator: BTCValidator
+    addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba'], sapling: ['1cb8','1cbd','zs']},
+    validator: ZECValidator
 },{
     name: 'zclassic',
     symbol: 'zcl',
     expectedLength: 26,
-    addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba']},
-    validator: BTCValidator
+    addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba'], sapling: ['1cb8','1cbd','zs']},
+    validator: ZECValidator
 },{
     name: 'zencash',
     symbol: 'zen',
     expectedLength: 26,
-    addressTypes: {prod: ['2089','2096'], testnet: ['2092','2098']},
-    validator: BTCValidator
+    addressTypes: {prod: ['2089','2096'], testnet: ['2092','2098'], sapling: ['2089','2096','zs']},
+    validator: ZECValidator
 },{
     name: 'votecoin',
     symbol: 'vot',
     expectedLength: 26,
-    addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba']},
-    validator: BTCValidator
+    addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba'], sapling: ['1cb8','1cbd','zs']},
+    validator: ZECValidator
 },{
     name: 'decred',
     symbol: 'dcr',
