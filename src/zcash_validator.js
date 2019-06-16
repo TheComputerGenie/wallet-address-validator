@@ -14,7 +14,7 @@ function getDecoded(address) {
         //return null;
     }
     // sapling, bech32 decode
-    if (address.slice(0,2) == 'zs') {
+    if (address.slice(0,2) == 'zs' || address.slice(0,12) == 'ztestsapling') {
         let decoded;
         try {
             decoded = bech32.decode(address);
