@@ -1,17 +1,17 @@
-var isNode = typeof module !== 'undefined' && typeof module.exports !== 'undefined';
+const isNode = typeof module !== 'undefined' && typeof module.exports !== 'undefined';
 
-var chai = isNode ? require('chai') : window.chai,
+const chai = isNode ? require('chai') : window.chai,
     expect = chai.expect;
 
-var WAValidator = isNode ? require('../src/wallet_address_validator') : window.WAValidator;
+const WAValidator = isNode ? require('../src/wallet_address_validator') : window.WAValidator;
 
 function valid (address, currency, networkType) {
-    var result = WAValidator.validate(address, currency, networkType);
+    let result = WAValidator.validate(address, currency, networkType);
     expect(result).to.be.true;
 }
 
 function invalid (address, currency, networkType) {
-    var result = WAValidator.validate(address, currency, networkType);
+    let result = WAValidator.validate(address, currency, networkType);
     expect(result).to.be.false;
 }
 
