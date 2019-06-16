@@ -10,7 +10,7 @@ function getDecoded(address) {
     try {
         return base58.decode(address);
     } catch (e) {
-        // maybe sapling
+        // try for sapling, do not return null...yet
         //return null;
     }
     // sapling, bech32 decode
@@ -19,7 +19,7 @@ function getDecoded(address) {
         try {
             decoded = bech32.decode(address);
         } catch (error) {
-            return false;
+            return null;
         }
         // ConvertedSaplingPaymentAddressSize == decoded.data.length == 69
         // https://github.com/zcash/zcash/blob/master/src/key_io.cpp#L168
