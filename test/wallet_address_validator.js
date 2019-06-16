@@ -303,8 +303,7 @@ describe('WAValidator.validate()', function () {
             valid('t1U9yhDa5XEjgfnTgZoKddeSiEN1aoLkQxq', 'votecoin');
             valid('t3Vz22vK5z2LcKEdg16Yv4FFneEL1zg9ojd', 'VOT');
             valid('t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi', 'votecoin', 'testnet');
-              valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'votecoin', 'sapling');
-            invalid('zs1z7rejlpsa98s2rrrfkwmaxu53e4ue0ulcrw0h4x5g8jl04tak0d3mm47vdtahatqrlknghly9s', 'votecoin', 'sapling');
+            valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'votecoin', 'sapling');
         });
 
         it('should return true for correct bitcoinz addresses', function () {
@@ -317,23 +316,30 @@ describe('WAValidator.validate()', function () {
             valid('t1U9yhDa5XEjgfnTgZoKddeSiEN1aoLkQxq', 'zclassic');
             valid('t3Vz22vK5z2LcKEdg16Yv4FFneEL1zg9ojd', 'ZCL');
             valid('t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi', 'zclassic', 'testnet');
-              valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'zclassic', 'sapling');
-            invalid('zs1z7rejlpsa98s2rrrfkwmaxu53e4ue0ulcrw0h4x5g8jl04tak0d3mm47vdtahatqrlknghly9s', 'zclassic', 'sapling');
+            valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'zclassic', 'sapling');
         });
 
         it('should return true for correct hush addresses', function () {
             valid('R9R5HirAzqDcWrWGiJEL115dpV3QB3hobH', 'hush');
             valid('RAvj2KKVUohTu3hVdNJ4U6hQi7TNawpacH', 'HUSH');
-              valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'hush', 'sapling');
-            invalid('zs1z7rejlpsa98s2rrrfkwmaxu53e4ue0ulcrw0h4x5g8jl04tak0d3mm47vdtahatqrlknghly9s', 'hush', 'sapling');
+            valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'hush', 'sapling');
         });
 
         it('should return true for correct zcash addresses', function () {
-            valid('t1U9yhDa5XEjgfnTgZoKddeSiEN1aoLkQxq', 'zcash');
+            // non-sapling support
             valid('t3Vz22vK5z2LcKEdg16Yv4FFneEL1zg9ojd', 'ZEC');
-            valid('t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi', 'zcash', 'testnet');
-              valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'zcash', 'sapling');
+            valid('t1U9yhDa5XEjgfnTgZoKddeSiEN1aoLkQxq', 'zcash');
+            invalid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'zcash'); // sapling will fail for 'prod', use type 'sapling' to enable
+            // sapling support
+            valid('t3Vz22vK5z2LcKEdg16Yv4FFneEL1zg9ojd', 'ZEC', 'sapling');
+            valid('t1U9yhDa5XEjgfnTgZoKddeSiEN1aoLkQxq', 'zcash', 'sapling');
+            valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'zcash', 'sapling');
             invalid('zs1z7rejlpsa98s2rrrfkwmaxu53e4ue0ulcrw0h4x5g8jl04tak0d3m7vdtahatqrlknghly9s', 'zcash', 'sapling');
+            invalid('ztestsapling1tfrfv0sfpd0ms8js2exv0vzv7x80xnfv84nyxfpu6zcevny60apx7xxz03w93fyx5ycvyh64jl7', 'zcash', 'sapling');
+            // testnet support
+            valid('t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi', 'zcash', 'testnet');
+            valid('ztestsapling1tfrfv0sfpd0ms8js2exv0vzv7x80xnfv84nyxfpu6zcevny60apx7xxz03w93fyx5ycvyh64jl7', 'zcash', 'testnet');
+            invalid('ztestsapling1tfrfv0sfpd0ms8js2exv0vzv7x80xnfv84nyxfpu6zcevny60apx7xxz03w93fyx5ycvyh6174j', 'zcash', 'testnet');
         });
 
         it('should return true for correct bitcoinprivate addresses', function () {
@@ -344,8 +350,7 @@ describe('WAValidator.validate()', function () {
             valid('s1fx7WBkjB4UH6qQjPp6Ysmtr1C1JiTK2Yw', 'snowgem');
             valid('s3d27MhkBRt3ha2UuxhjXaYF4DCnttTMnL1', 'SNG');
             valid('t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi', 'snowgem', 'testnet');
-              valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'snowgem', 'sapling');
-            invalid('zs1z7rejlpsa98s2rrrfkwmaxu53e4ue0ulcrw0h4x5g8jl04tak0d3m7vdtahatqrlknghly9s99', 'snowgem', 'sapling');
+            valid('zs1a2546az53z90rd28gq8t7l6pn8p5say66h2cs02s3wqtudkg0t4yvgs0mkw44mjc08nmkujvyhh', 'snowgem', 'sapling');
         });
 
         it('should return true for correct zencash addresses', function () {
