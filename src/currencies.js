@@ -107,25 +107,25 @@ var CURRENCIES = [{
 },{
     name: 'hush',
     symbol: 'hush',
-    addressTypes: {prod: ['3c','55'], testnet: ['0','5', 'zs'], sapling: ['3c','55','zs']},
+    addressTypes: {prod: ['3c','55'], testnet: ['0','5', 'ztestsapling'], sapling: ['3c','55','zs']},
     validator: ZECValidator
 },{
     name: 'snowgem',
     symbol: 'sng',
     expectedLength: 26,
-    addressTypes: {prod: ['1c28','1c2d'], testnet: ['1d25', '1cba', 'zs'], sapling: ['1c28','1c2d','zs']},
+    addressTypes: {prod: ['1c28','1c2d'], testnet: ['1d25', '1cba', 'ztestsapling'], sapling: ['1c28','1c2d','zs']},
     validator: ZECValidator
 },{
     name: 'zcash',
     symbol: 'zec',
     expectedLength: 26,
-    addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba', 'zs'], sapling: ['1cb8','1cbd','zs']},
+    addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba', 'ztestsapling'], sapling: ['1cb8','1cbd','zs']},
     validator: ZECValidator
 },{
     name: 'zclassic',
     symbol: 'zcl',
     expectedLength: 26,
-    addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba', 'zs'], sapling: ['1cb8','1cbd','zs']},
+    addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba', 'ztestsapling'], sapling: ['1cb8','1cbd','zs']},
     validator: ZECValidator
 },{
     name: 'zencash',
@@ -137,7 +137,7 @@ var CURRENCIES = [{
     name: 'votecoin',
     symbol: 'vot',
     expectedLength: 26,
-    addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba', 'zs'], sapling: ['1cb8','1cbd','zs']},
+    addressTypes: {prod: ['1cb8','1cbd'], testnet: ['1d25', '1cba', 'ztestsapling'], sapling: ['1cb8','1cbd','zs']},
     validator: ZECValidator
 },{
     name: 'decred',
