@@ -93,6 +93,11 @@ var CURRENCIES = [{
     addressTypes: {prod: ['3c','55'], testnet: ['0','5']},
     validator: ZECValidator
 },{
+    name: 'verus',
+    symbol: 'vrsc',
+    addressTypes: {prod: ['3c','55','66'], testnet: ['0','5','3c','55','66','ztestsapling'], sapling: ['3c','55','66','zs']},
+    validator: ZECValidator
+},{
     name: 'bitcoinz',
     symbol: 'btcz',
     expectedLength: 26,
